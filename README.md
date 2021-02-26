@@ -1,1 +1,1 @@
-# RefiningBot
+# RefinedBot
