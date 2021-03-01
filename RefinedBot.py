@@ -1,10 +1,23 @@
 import discord
-from discord.ext import commands
+from discord.ext import commands, tasks
 from discord.utils import get
+from random import randint
 
 bot = commands.Bot(command_prefix='--')
 bot.remove_command('help')
 client = discord.Client()
+
+status_list = [
+    "try --mention"
+    "fuck everyone who is reading this"
+    "you fucking suck"
+    "try --help"
+    "did you know you suck?"
+    "please dont crash me i am friendly bot yes"
+    "https://vndb.org/v4037"
+    "astolfo best waifu"
+    "pew pew you ded now haha"
+]
 
 initial_cogs = [
     "cogs.error_handler",
@@ -25,6 +38,14 @@ for cog in initial_cogs:
 @bot.event
 async def on_ready():
     print('Logged in as {0.user}'.format(bot))
+
+@tasks.loop(minutes=10)
+async def status():
+    await bot.wait_until_ready()
+    value = randint(0, len(status_list))
+    value = value - 1
+    await bot.change_presence(activity=discord.Game(name=status_list[value]))
+    print(f"Status set to: {status_list[value]}")
 
 @bot.command()
 async def mention(ctx):
