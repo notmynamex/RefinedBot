@@ -36,7 +36,7 @@ def get_gelImage(tags):
         image = random.choice(json_api_url)["file_url"]
         return image
     except ValueError:
-        return "No results with given tags or they are incorrect."
+        return "fucking idiot, that doesnt exist smh, try another tag"
 
 class gelb(commands.Cog):
     def __init__(self, client):
