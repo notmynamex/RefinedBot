@@ -38,6 +38,7 @@ for cog in initial_cogs:
 @bot.event
 async def on_ready():
     print('Logged in as {0.user}'.format(bot))
+    status.start()
 
 @tasks.loop(minutes=10)
 async def status():
