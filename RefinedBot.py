@@ -8,14 +8,14 @@ bot.remove_command('help')
 client = discord.Client()
 
 status_list = [
-    "try --mention"
-    "fuck everyone who is reading this"
-    "you fucking suck"
-    "try --help"
-    "did you know you suck?"
-    "please dont crash me i am friendly bot yes"
-    "https://vndb.org/v4037"
-    "astolfo best waifu"
+    "try --mention",
+    "fuck everyone who is reading this",
+    "you fucking suck",
+    "try --help",
+    "did you know you suck?",
+    "please dont crash me i am friendly bot yes",
+    "https://vndb.org/v4037",
+    "astolfo best waifu",
     "pew pew you ded now haha"
 ]
 
