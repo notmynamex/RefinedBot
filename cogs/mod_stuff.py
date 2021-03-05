@@ -18,13 +18,16 @@ class mod_stuff(commands.Cog):
     async def ban(self, ctx, member:discord.User=None, reason =None):
         if member == None or member == ctx.message.author:
             await ctx.channel.send("why the fuck do you want to ban yourself??")
+            print("wow the idiot tried to ban himself lmao")
             return
         if reason == None:
             reason = "begone thot"
-        message = f"begone {ctx.guild.name}, the thot banned for {reason}"
+            print("someone has been banned lmao")
+        message = f"begone from {ctx.guild.name}, thou hast been banned for {reason}"
         await member.send(message)
         await ctx.guild.ban(member, reason=reason)
-        await ctx.channel.send(f"{member} is banned!")
+        await ctx.channel.send(f"{member} has been purged from the land of the refined")
+        print("someone has been banned lmao")
 
 def setup(bot):
     bot.add_cog(mod_stuff(bot))
