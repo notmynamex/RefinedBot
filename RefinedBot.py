@@ -55,7 +55,7 @@ async def mention(ctx):
 
 @bot.command()
 async def ping(ctx):
-    await ctx.send('uwu your ping is {0}ms senpai uwu'.format(round(bot.latency, 1)))
-    print('Response time: {0}ms'.format(round(bot.latency, 1)))
+    await ctx.send('uwu your ping is {0}ms senpai uwu'.format(round(bot.latency, 1000)))
+    print('Response time: {0}ms'.format(round(bot.latency, 1000)))
 
 bot.run('ODE0NjE2MjcwMDg3NTIwMzE2.YDgchQ.a0O-fbvzjcTvPXLBDK71MAfE8Oo')
