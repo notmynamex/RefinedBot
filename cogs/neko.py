@@ -37,7 +37,7 @@ class neko(commands.Cog):
         if ctx.channel.is_nsfw() is False:
             await ctx.send('go to a nsfw channel you fucking idiot <:RinKEK:802258335062949888>')
 
-    @bot.group()
+    @bot.command()
     async def yuri(self, ctx):
         if ctx.channel.is_nsfw() is True:
             await ctx.send(file=discord.File(await image("https://nekos.life/api/v2/img/yuri"), "yuri.png"))
@@ -65,7 +65,7 @@ class neko(commands.Cog):
         if ctx.channel.is_nsfw() is False:
             await ctx.send('go to a nsfw channel you fucking idiot <:RinKEK:802258335062949888>')
 
-    @bot.group()
+    @bot.group(invoke_without_command=True)
     async def cum(self, ctx):
         if ctx.channel.is_nsfw() is True:
             await ctx.send(file=discord.File(await image("https://nekos.life/api/v2/img/cum"), "cum.gif"))
@@ -107,8 +107,8 @@ class neko(commands.Cog):
         if ctx.channel.is_nsfw() is False:
             await ctx.send('go to a nsfw channel you fucking idiot <:RinKEK:802258335062949888>')
 
-    @cum.command()
-    async def jpg(self, ctx):
+    @cum.command(aliases=["jpg"])
+    async def cum_jpg(self, ctx):
         if ctx.channel.is_nsfw() is True:
             await ctx.send(file=discord.File(await image("https://nekos.life/api/v2/img/cum_jpg"), "cum.jpg"))
         if ctx.channel.is_nsfw() is False:
@@ -129,16 +129,13 @@ class neko(commands.Cog):
             await ctx.send('go to a nsfw channel you fucking idiot <:RinKEK:802258335062949888>')
 
     @bot.command()
-    async def kemonomimi(self, ctx):
-        if ctx.channel.is_nsfw() is True:
-            await ctx.send(file=discord.File(await image("https://nekos.life/api/v2/img/kemonomimi"), "kemonomimi.png"))
-        if ctx.channel.is_nsfw() is False:
-            await ctx.send('go to a nsfw channel you fucking idiot <:RinKEK:802258335062949888>')
+    async def kemo(self, ctx):
+        await ctx.send(file=discord.File(await image("https://nekos.life/api/v2/img/kemonomimi"), "kemonomimi.png"))
 
     @bot.command()
     async def nsfw_avatar(self, ctx):
         if ctx.channel.is_nsfw() is True:
-            await ctx.send(file=discord.File(await image("https://nekos.life/api/v2/img/nasfw_avatar"), "nsfw_avatar.png"))
+            await ctx.send(file=discord.File(await image("https://nekos.life/api/v2/img/nsfw_avatar"), "nsfw_avatar.png"))
         if ctx.channel.is_nsfw() is False:
             await ctx.send('go to a nsfw channel you fucking idiot <:RinKEK:802258335062949888>')
 
@@ -177,7 +174,7 @@ class neko(commands.Cog):
         if ctx.channel.is_nsfw() is False:
             await ctx.send('go to a nsfw channel you fucking idiot <:RinKEK:802258335062949888>')
 
-    @bot.group()
+    @bot.group(invoke_without_command=True)
     async def pussy(self, ctx):
         if ctx.channel.is_nsfw() is True:
             await ctx.send(file=discord.File(await image("https://nekos.life/api/v2/img/pussy"), "pussy.gif"))
@@ -195,7 +192,7 @@ class neko(commands.Cog):
     async def lizard(self, ctx):
         await ctx.send(file=discord.File(await image("https://nekos.life/api/v2/img/lizard"), "lizard.png"))
 
-    @bot.command()
+    @pussy.command(aliases=["jpg"])
     async def pussy_jpg(self, ctx):
         if ctx.channel.is_nsfw() is True:
             await ctx.send(file=discord.File(await image("https://nekos.life/api/v2/img/pussy_jpg"), "pussy.jpg"))

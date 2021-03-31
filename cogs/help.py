@@ -5,6 +5,8 @@ from discord.utils import get
 bot = commands.Bot(command_prefix='--')
 bot.remove_command('help')
 
+#NOTE TO SELF: KEMONOMIMI = KEMO
+
 class helpClient(commands.Cog):
     def __init__(self, client):
         self.client = client
