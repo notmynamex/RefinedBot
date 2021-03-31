@@ -26,6 +26,10 @@ class neko(commands.Cog):
     async def gif(self, ctx):
         await ctx.send(file=discord.File(await image("https://nekos.life/api/v2/img/ngif"), "neko.gif")) #def vital, without the bot wont run correctly
 
+    @bot.command()
+    async def fox(self, ctx):
+        await ctx.send(file=discord.File(await image("https://nekos.life/api/v2/img/fox_girl"), "fox.png")) #also vital please believe me thanks
+
     @neko.group(invoke_without_command=True)
     async def lewd(self, ctx):
         if ctx.channel.is_nsfw() is True:
@@ -39,6 +43,7 @@ class neko(commands.Cog):
             await ctx.send(file=discord.File(await image("https://nekos.life/api/v2/img/nsfw_neko_gif"), "neko_lewd_gif.gif")) #this too
         if ctx.channel.is_nsfw() is False:
             await ctx.send('go to a nsfw channel you fucking idiot <:RinKEK:802258335062949888>')
+
 
 def setup(bot):
     bot.add_cog(neko(bot))
