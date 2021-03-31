@@ -30,6 +30,11 @@ class helpClient(commands.Cog):
             inline=False
         )
         embed.add_field(
+            name="--help misc",
+            value="Show commands and subcommands related to the nekos.life API",
+            inline=False
+        )
+        embed.add_field(
             name="--ping", 
             value="Show latency", 
             inline=False
@@ -37,11 +42,6 @@ class helpClient(commands.Cog):
         embed.add_field(
             name="--nhentai/--nh <arg>",
             value="Posts a random doujin or fetches a certain doujin if an ID is provided. Only works in NSFW channels",
-            inline=False
-        )
-        embed.add_field(
-            name="--fox",
-            value="Posts an image of a foxgirl",
             inline=False
         )
         await ctx.send(embed=embed)
@@ -104,6 +104,196 @@ class helpClient(commands.Cog):
         )
         await ctx.send(embed=embed)
         print('gelbooru help embed sent')
+
+    @help.command()
+    async def misc(self, ctx):
+        embed=discord.Embed(
+            title="Help for every command related to the nekos.life API",
+            description="These commands all use the nekos.life API, the same way anything in --help neko does.",
+            colour=0x1f13ee
+        )
+        embed.add_field(
+            name="--fox",
+            value="Posts an image of a foxgirl in any channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--feet",
+            value="Posts an image of feet in any nsfw channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--yuri",
+            value="Posts an image of yuri in any nsfw channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--futa",
+            value="Posts an image of futa in any nsfw channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--lewdkemo",
+            value="Posts an image of a lewd kemonomimi in any nsfw channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--feet gif",
+            value="Posts a gif of feet in any nsfw channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--cum",
+            value="Posts a gif with cum in any nsfw channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--erokemo",
+            value="Posts an image of an erotic-looking kemonomimi in any channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--les",
+            value="tbh I have no idea what this tag is supposed to be but its hot trust me",
+            inline=False
+        )
+        embed.add_field(
+            name="--lewdfox",
+            value="Posts an image of a lewd foxgirl in any nsfw channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--eroyuri",
+            value="Posts an image of yuri but better I guess in any nsfw channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--eron",
+            value="Posts an image of an erotic-looking neko in any nsfw channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--cum jpg",
+            value="Posts an image with cum in any channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--bj",
+            value="Posts a gif of a blowjob in any nsfw channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--solo",
+            value="Posts an image of a solo femail in any nsfw channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--kemo",
+            value="Posts an image of a kemonomimi in any channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--nsfw_avatar",
+            value="Posts a nsfw avatar in any nsfw channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--anal",
+            value="Posts a gif of anal in any nsfw channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--hentai",
+            value="Posts an image of just general hentai in any nsfw channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--erofeet",
+            value="Posts an image of erotic-looking feet in any channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--keta",
+            value="I am also not quite sure what this tag is but I suppose its pretty nice.",
+            inline=False
+        )
+        embed.add_field(
+            name="--blowjob",
+            value="Posts an image of a blowjob in any nsfw channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--pussy",
+            value="Posts a gif of a pussy in any nsfw channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--tits",
+            value="Posts an image of a pair of tits in any nsfw channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--lizard",
+            value="Posts an image of a lizard in any channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--pussy jpg",
+            value="Posts an image of a pussy in any nsfw channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--pwankg",
+            value="I also have no idea what this is but its also very hot yes yes",
+            inline=False
+        )
+        embed.add_field(
+            name="--classic",
+            value="Posts a gif of some classics in any nsfw channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--kuni",
+            value="Yea also no clue what this is but also good",
+            inline=False
+        )
+        embed.add_field(
+            name="--femdom",
+            value="Posts an image of some nice femdom in any nsfw channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--ero_kitsune",
+            value="Posts an image of a erotic-looking foxgirl in any nsfw channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--fox_girl",
+            value="Also posts an image of a foxgirl in any channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--boobs",
+            value="Posts a gif of a nice pair of boobs in any nsfw channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--ero",
+            value="Posts an erotic-looking image in any nsfw channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--smug",
+            value="Posts an gif of smug face in any channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--goose",
+            value="Posts an image of a goose in any channel.",
+            inline=False
+        )
+        await ctx.send(embed=embed)
+        print('misc help embed sent')
 
 def setup(bot):
     bot.add_cog(helpClient(bot))
