@@ -37,6 +37,11 @@ class helpClient(commands.Cog):
             value="Posts a random doujin or fetches a certain doujin if an ID is provided. Only works in NSFW channels",
             inline=False
         )
+        embed.add_field(
+            name="--fox",
+            value="Posts an image of a foxgirl",
+            inline=False
+        )
         await ctx.send(embed=embed)
         print('help embed sent')
 
