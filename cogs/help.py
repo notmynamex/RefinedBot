@@ -112,6 +112,7 @@ class helpClient(commands.Cog):
             description="These commands all use the nekos.life API, the same way anything in --help neko does.",
             colour=0x1f13ee
         )
+        embed.set_thumbnail(url="https://i.imgur.com/MjGFq8P.png")
         embed.add_field(
             name="--fox",
             value="Posts an image of a foxgirl in any channel.",
