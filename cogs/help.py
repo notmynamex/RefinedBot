@@ -88,18 +88,18 @@ class helpClient(commands.Cog):
         )
         embed.set_thumbnail(url="https://i.imgur.com/PcRxTmE.png")
         embed.add_field(
-            name="--gelb rs <arg>",
-            value="Posts a safe for work image in any channel, add tags as args to search for specific...tags.",
+            name="--gelb rs+<arg>",
+            value="Posts a safe for work image in any channel, add tags as args to search for specific...tags. You have to put a + or a / in between tags.",
             inline=False
         )
         embed.add_field(
-            name="--gelb rq <arg>",
-            value="Posts a questionable image in any nsfw channel, add tags as args to search for specific...tags.",
+            name="--gelb rq+<arg>",
+            value="Posts a questionable image in any nsfw channel, add tags as args to search for specific...tags. You have to put a + or a / in between tags.",
             inline=False
         )
         embed.add_field(
-            name="--gelb re <arg>",
-            value="Posts an explicit image in any nsfw channel, add tags as args to search for specific...tags.",
+            name="--gelb re+<arg>",
+            value="Posts an explicit image in any nsfw channel, add tags as args to search for specific...tags. You have to put a + or a / in between tags.",
             inline=False
         )
         await ctx.send(embed=embed)
