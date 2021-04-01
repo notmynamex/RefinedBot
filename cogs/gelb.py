@@ -25,6 +25,7 @@ def get_gelImage(tags):
     if rating == "": 
         rating = ratings["rs"]
 
+    formatted_tags = "_".join(tags).replace("/", "+")
 
     print(rating, formatted_tags)
 
