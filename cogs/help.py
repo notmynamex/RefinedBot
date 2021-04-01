@@ -79,7 +79,7 @@ class helpClient(commands.Cog):
         await ctx.send(embed=embed)
         print('neko help embed sent')
 
-    @help.command()
+    @help.command(aliases=["gelb"])
     async def gelbooru(self, ctx):
         embed=discord.Embed(
             title="Help for Gelbooru",
