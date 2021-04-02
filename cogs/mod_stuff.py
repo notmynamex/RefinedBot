@@ -8,7 +8,7 @@ class mod_stuff(commands.Cog):
         self.client = client
 
     @bot.command(pass_context=True)
-    @commands.has_permissions(administrator=True)
+    @commands.has_permissions(manage_messages=True)
     async def purge(self, ctx, limit: int):
             await ctx.channel.purge(limit=limit)
             print("the purge has begun")
