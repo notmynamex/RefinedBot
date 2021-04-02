@@ -32,21 +32,33 @@ class nhen(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @bot.command(aliases=["nh"])
+    @bot.group(invoke_without_command=True, aliases=["nh"])
+    @commands.is_nsfw()
     async def nhentai(self, ctx, argument=None):
-        if ctx.channel.is_nsfw() is True:
-            print("Ran nhentai in nsfw channel")
-            if argument is None:
-                sauce = nhentai.get_random()
-                return await ctx.send(embed=await sauce_embed(sauce))
-            if argument.isdigit():
-                sauce = nhentai._get_doujin(id=argument)
-                if sauce is None:
-                    return await ctx.send("wrong id you idiot <:RinKEK:802258335062949888>")
-                await ctx.send(embed=await sauce_embed(sauce))
-        if ctx.channel.is_nsfw() is False:
-            print("Ran nhentai outside of nsfw channel")
-            await ctx.send('go to a nsfw channel you fucking idiot <:RinKEK:802258335062949888>')
+        print("Ran nhentai in nsfw channel")
+        if argument is None:
+            sauce = nhentai.get_random()
+            return await ctx.send(embed=await sauce_embed(sauce))
+        if argument.isdigit():
+            sauce = nhentai._get_doujin(id=argument)
+            if sauce is None:
+                return await ctx.send("wrong id you idiot <:RinKEK:802258335062949888>")
+            await ctx.send(embed=await sauce_embed(sauce))
+
+    @nhentai.command()
+    @commands.is_nsfw()
+    async def search(self, ctx, argument=None):
+        print("Ran nhentai search in nsfw channel")
+        if argument is None:
+            await ctx.send("I cant search for nothing dumbass")
+            print("some idiot tried to search for nothing lmao")
+        if argument.isalpha():
+            sauce = nhentai.search(query=argument)
+            if sauce is None:
+                return await ctx.send("nothing found you fucking dumbass")
+            await ctx.send(embed=await sauce_embed(sauce))
+
+
 
 def setup(bot):
     bot.add_cog(nhen(bot))
