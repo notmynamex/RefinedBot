@@ -67,12 +67,5 @@ async def ping(ctx):
     await ctx.send('uwu your ping is {0}ms senpai uwu'.format(round(bot.latency, 1000)))
     print('Response time: {0}ms'.format(round(bot.latency, 1000)))
 
-@bot.event
-async def on_join_guild(guild):
-    for channel in guild.text_channels:
-        if channel.permissions_for(guild.me).send_messages:
-            await channel.send("Whats up dickheads, --help for help")
-        break
-
 
 bot.run(os.getenv("TOKEN"))

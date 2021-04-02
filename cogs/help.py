@@ -35,6 +35,10 @@ class helpClient(commands.Cog):
             inline=False
         )
         embed.add_field(
+            name="--help moderation",
+            value="Show commands and subcommands for moderation purposes"
+        )
+        embed.add_field(
             name="--ping", 
             value="Show latency", 
             inline=False
@@ -295,6 +299,26 @@ class helpClient(commands.Cog):
         )
         await ctx.send(embed=embed)
         print('misc help embed sent')
+
+    @help.command()
+    async def moderation(self, ctx):
+        embed=discord.Embed(
+            title="Help for moderator commands",
+            description="These commands can only be used by those with the perms to do so.",
+            colour=0x1f13ee
+        )
+        embed.add_field(
+            name="--purge [number]",
+            value="Purges the amount of messages specified. Only useable by Administrators",
+            inline=False
+        )
+        embed.add_field(
+            name="--ban [person] [optional reason]",
+            value="Bans the person mentioned for the reason specified. If no reason is provided, the direct message to the banned member will just state 'begone thot'. Only useable by those with the 'Ban members' permission.",
+            inline=False
+        )
+        await ctx.send(embed=embed)
+        print('Moderation help embed sent')
 
 def setup(bot):
     bot.add_cog(helpClient(bot))
