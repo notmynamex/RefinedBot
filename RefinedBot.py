@@ -1,11 +1,18 @@
 import discord
-from discord.ext import commands, tasks
-from discord.utils import get
+import os
+from discord.ext import commands
+from discord.ext import tasks
 from random import randint
+from dotenv import load_dotenv
+
+
+load_dotenv(os.getcwd()+"/config.env")
+
 
 bot = commands.Bot(command_prefix='--')
 bot.remove_command('help')
 client = discord.Client()
+
 
 status_list = [
     "try --mention",
@@ -18,6 +25,7 @@ status_list = [
     "astolfo best waifu",
     "pew pew you ded now haha"
 ]
+
 
 initial_cogs = [
     "cogs.error_handler",
@@ -34,6 +42,7 @@ for cog in initial_cogs:
         print(f"Successfully loaded {cog}")
     except Exception as e:
         print(f"Failed to load cog {cog}: {e}")
+
 
 @bot.event
 async def on_ready():
@@ -66,4 +75,4 @@ async def on_join_guild(guild):
         break
 
 
-bot.run('ODE0NjE2MjcwMDg3NTIwMzE2.YDgchQ.a0O-fbvzjcTvPXLBDK71MAfE8Oo')
+bot.run(os.getenv("TOKEN"))
