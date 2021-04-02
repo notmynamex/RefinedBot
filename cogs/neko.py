@@ -30,7 +30,7 @@ class neko(commands.Cog):
     async def fox(self, ctx):
         await ctx.send(file=discord.File(await image("https://nekos.life/api/v2/img/fox_girl"), "fox.png")) #also vital please believe me thanks
 
-    @bot.group()
+    @bot.group(invoke_without_command=True)
     @commands.is_nsfw()
     async def feet(self, ctx):
         await ctx.send(file=discord.File(await image("https://nekos.life/api/v2/img/feet"), "feet.png"))
