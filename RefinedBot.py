@@ -62,6 +62,7 @@ async def mention(ctx):
     await ctx.send(ctx.author.mention)
     print('oooooh someone got pinged via --mention') #this command is vital trust me
 
+
 @bot.command()
 async def ping(ctx):
     await ctx.send('uwu your ping is {0}ms senpai uwu'.format(round(bot.latency, 1000)))

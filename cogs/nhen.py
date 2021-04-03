@@ -1,9 +1,12 @@
 import discord
 from discord.ext import commands
+import requests
 from NHentai import NHentai
+from hentai import Utils, Sort, Option, Tag, Hentai, Format
 
 bot = commands.Bot(command_prefix='--')
 nhentai = NHentai()
+
 
 
 async def sauce_embed(sauce):
@@ -28,6 +31,7 @@ async def sauce_embed(sauce):
     embed.set_image(url=(getattr(sauce,"images"))[0])
     return embed
 
+
 class nhen(commands.Cog):
     def __init__(self, client):
         self.client = client
@@ -38,6 +42,7 @@ class nhen(commands.Cog):
         print("Ran nhentai in nsfw channel")
         if argument is None:
             sauce = nhentai.get_random()
+            print("random doujin sent")
             return await ctx.send(embed=await sauce_embed(sauce))
         if argument.isdigit():
             sauce = nhentai._get_doujin(id=argument)
@@ -45,19 +50,20 @@ class nhen(commands.Cog):
                 return await ctx.send("wrong id you idiot <:RinKEK:802258335062949888>")
             await ctx.send(embed=await sauce_embed(sauce))
 
-    @nhentai.command()
-    @commands.is_nsfw()
-    async def search(self, ctx, argument=None):
-        print("Ran nhentai search in nsfw channel")
-        if argument is None:
-            await ctx.send("I cant search for nothing dumbass")
-            print("some idiot tried to search for nothing lmao")
-        if argument.isalpha():
-            sauce = nhentai.search(query=argument)
-            if sauce is None:
-                return await ctx.send("nothing found you fucking dumbass")
-            await ctx.send(embed=await sauce_embed(sauce))
 
+#    @nhentai.command()
+#    @commands.is_nsfw()
+#    async def search(self, ctx, argument=None):
+#        print("Ran nhentai search in nsfw channel")
+#        if argument is None:
+#            print("nothing provided lmao")
+#            return await ctx.send("i cant search for nothing wtf")
+#        if argument.isalpha():
+#            sauce = nhentai.search(query=argument, sort='popular', page=1)
+#            if sauce is None:
+#                print("nothing found lmao what a dumbass")
+#                return await ctx.send("nothing found, please dont try again")
+#            await ctx.send(embed=await sauce_embed(sauce))
 
 
 def setup(bot):
