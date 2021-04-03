@@ -201,6 +201,11 @@ class neko(commands.Cog):
     async def goose(self, ctx):
         await ctx.send(file=discord.File(await image("https://nekos.life/api/v2/img/goose"), "goose.png"))
 
+    @bot.command()
+    @commands.is_nsfw()
+    async def trap(self, ctx):
+        await ctx.send(file=discord.File(await image("https://nekos.life/api/v2/img/trap"), "trap.png"))
+
     @neko.group(invoke_without_command=True)
     @commands.is_nsfw()
     async def lewd(self, ctx):
