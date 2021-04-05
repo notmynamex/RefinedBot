@@ -1,4 +1,5 @@
 import discord
+import logging
 from discord.ext import commands
 from discord.utils import get
 
@@ -47,8 +48,13 @@ class helpClient(commands.Cog):
             value="Posts a random doujin or fetches a certain doujin if an ID is provided. Only works in NSFW channels",
             inline=False
         )
+        embed.add_field(
+            name="--nhentai search 'tag/character/whatever the fuck you want'/--nh search 'tag/character/whatever the fuck you want'",
+            value="Posts a search result of the tag/character/whatever the fuck you searched for. More info for how to search at https://nhentai.net/info/",
+            inline=False #thank you spam for , very cool
+        )
         await ctx.send(embed=embed)
-        print('help embed sent')
+        logging.info('help embed sent')
 
     @help.command()
     async def neko(self, ctx):
@@ -80,7 +86,7 @@ class helpClient(commands.Cog):
             inline=False
         )
         await ctx.send(embed=embed)
-        print('neko help embed sent')
+        logging.info('neko help embed sent')
 
     @help.command(aliases=["gelb"])
     async def gelbooru(self, ctx):
@@ -106,7 +112,7 @@ class helpClient(commands.Cog):
             inline=False
         )
         await ctx.send(embed=embed)
-        print('gelbooru help embed sent')
+        logging.info('gelbooru help embed sent')
 
     @help.command()
     async def misc(self, ctx):
@@ -297,7 +303,7 @@ class helpClient(commands.Cog):
             inline=False
         )
         await ctx.send(embed=embed)
-        print('misc help embed sent')
+        logging.info('misc help embed sent')
 
     @help.command()
     async def moderation(self, ctx):
@@ -317,7 +323,7 @@ class helpClient(commands.Cog):
             inline=False
         )
         await ctx.send(embed=embed)
-        print('Moderation help embed sent')
+        logging.info('Moderation help embed sent')
 
 def setup(bot):
     bot.add_cog(helpClient(bot))

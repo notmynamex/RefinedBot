@@ -1,6 +1,7 @@
 import discord
-from discord.ext import commands
 import requests
+import logging
+from discord.ext import commands
 from NHentai import NHentai
 from hentai import Utils, Sort, Option, Tag, Hentai, Format
 
@@ -10,6 +11,7 @@ nhentai = NHentai()
 
 
 async def sauce_embed(sauce):
+    print(sauce)
     desc = "Tags: "
     for x in getattr(sauce, "tags"):
         desc = desc + x + ", "
@@ -39,31 +41,33 @@ class nhen(commands.Cog):
     @bot.group(invoke_without_command=True, aliases=["nh"])
     @commands.is_nsfw()
     async def nhentai(self, ctx, argument=None):
-        print("Ran nhentai in nsfw channel")
+        logging.info("Ran nhentai in nsfw channel")
         if argument is None:
             sauce = nhentai.get_random()
-            print("random doujin sent")
+            logging.info("random doujin sent")
             return await ctx.send(embed=await sauce_embed(sauce))
         if argument.isdigit():
             sauce = nhentai._get_doujin(id=argument)
             if sauce is None:
                 return await ctx.send("wrong id you idiot <:RinKEK:802258335062949888>")
+            logging.info(sauce)
             await ctx.send(embed=await sauce_embed(sauce))
 
 
-#    @nhentai.command()
-#    @commands.is_nsfw()
-#    async def search(self, ctx, argument=None):
-#        print("Ran nhentai search in nsfw channel")
-#        if argument is None:
-#            print("nothing provided lmao")
-#            return await ctx.send("i cant search for nothing wtf")
-#        if argument.isalpha():
-#            sauce = nhentai.search(query=argument, sort='popular', page=1)
-#            if sauce is None:
-#                print("nothing found lmao what a dumbass")
-#                return await ctx.send("nothing found, please dont try again")
-#            await ctx.send(embed=await sauce_embed(sauce))
+    @nhentai.command()
+    @commands.is_nsfw()
+    async def search(self, ctx, argument=None, val=0):
+        logging.info("Ran nhentai search in nsfw channel")
+        if argument is None:
+            logging.info("nothing provided lmao")
+            return await ctx.send("i cant search for nothing wtf")
+        if argument.isalpha():
+            SearchPage = nhentai.search(query=argument, sort='popular', page=1)
+            Doujin = getattr(SearchPage, "doujins")
+            if not Doujin:
+                logging.info("nothing found lmao what a dumbass")
+                return await ctx.send("nothing found, please dont try again")
+            await ctx.send(embed=await sauce_embed(nhentai._get_doujin(id=getattr(Doujin[int(val)], "id"))))
 
 
 def setup(bot):

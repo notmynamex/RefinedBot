@@ -1,5 +1,6 @@
 import discord
 import aiohttp
+import logging
 import io
 import json
 from discord.ext import commands
@@ -7,7 +8,7 @@ from discord.ext import commands
 bot = commands.Bot(command_prefix='--')
 
 async def image(link):
-    print(f"image function ran with {link}")
+    logging.info(f"image function ran with {link}")
     async with aiohttp.ClientSession() as session:
         async with session.get(link) as resp:
             json_data = json.loads(await resp.text())

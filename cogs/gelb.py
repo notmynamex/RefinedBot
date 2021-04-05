@@ -1,5 +1,6 @@
 import requests
 import random
+import logging
 import json
 from discord.ext import commands
 
@@ -27,7 +28,7 @@ def get_gelImage(tags):
 
     formatted_tags = "_".join(tags).replace("/", "+")
 
-    print(rating, formatted_tags)
+    logging.info(rating, formatted_tags)
 
     api_url = f"https://gelbooru.com/index.php?page=dapi&s=post&q=index&json=1&limit=50&tags={rating}+{formatted_tags}"
     response = requests.get(api_url)
