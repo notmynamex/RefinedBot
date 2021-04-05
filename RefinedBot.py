@@ -70,8 +70,8 @@ async def mention(ctx):
 
 @bot.command()
 async def ping(ctx):
-    await ctx.send('uwu your ping is {0}ms senpai uwu'.format(round(bot.latency, 1000)))
-    logging.info('Response time: {0}ms'.format(round(bot.latency, 1000)))
+    await ctx.send(f'Ping is {round(bot.latency * 1000)}ms')
+    logging.info(f'Ping is {round(bot.latency * 1000)}ms')
 
 
 bot.run(os.getenv("TOKEN"))

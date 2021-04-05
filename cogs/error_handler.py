@@ -20,7 +20,7 @@ class error_handler(commands.Cog):
 
         elif isinstance(error, commands.CheckFailure):
             logging.info("some idiot thought they had perms to do mod stuff lmao")
-            return await ctx.send('How about you get the fucking perms to do that first?')
+            return await ctx.send('How about you get the perms to do that first?')
         
         else:
             logging.info(error)

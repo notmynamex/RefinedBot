@@ -49,8 +49,8 @@ class helpClient(commands.Cog):
             inline=False
         )
         embed.add_field(
-            name="--nhentai search 'tag/character/whatever the fuck you want'/--nh search 'tag/character/whatever the fuck you want'",
-            value="Posts a search result of the tag/character/whatever the fuck you searched for. More info for how to search at https://nhentai.net/info/",
+            name="--nhentai search [tag/character/whatever the fuck you want]/--nh search [tag/character/whatever the fuck you want]",
+            value="Posts a search result of the tag/character/whatever the fuck you searched for. More info for how to search at https://nhentai.net/info/. Excluding tags does not yet work.",
             inline=False #thank you spam for , very cool
         )
         await ctx.send(embed=embed)
@@ -300,6 +300,11 @@ class helpClient(commands.Cog):
         embed.add_field(
             name="--goose",
             value="Posts an image of a goose in any channel.",
+            inline=False
+        )
+        embed.add_field(
+            name="--trap",
+            value="Posts an image of a trap in any nsfw channel.",
             inline=False
         )
         await ctx.send(embed=embed)
