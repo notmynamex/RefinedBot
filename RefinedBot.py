@@ -9,13 +9,12 @@ from dotenv import load_dotenv
 
 load_dotenv(os.getcwd()+"/config.env")
 
-
-bot = commands.Bot(command_prefix='--')
+intents = discord.Intents.default()
+intents.members = True
+bot = commands.Bot(command_prefix='--', intents=intents)
 bot.remove_command('help')
 client = discord.Client()
 logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.INFO)
-intents = discord.Intents.default()
-intents.members = True
 
 
 status_list = [
@@ -72,7 +71,7 @@ async def mention(ctx):
 
 @bot.command()
 async def ping(ctx):
-    await ctx.send(f'Ping is {round(bot.latency * 1000)}ms')
+    await ctx.send(f'uwu your ping is {round(bot.latency * 1000)}ms senpai uwu')
     logging.info(f'Ping is {round(bot.latency * 1000)}ms')
 
 
