@@ -14,6 +14,8 @@ bot = commands.Bot(command_prefix='--')
 bot.remove_command('help')
 client = discord.Client()
 logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.INFO)
+intents = discord.Intents.default()
+intents.members = True
 
 
 status_list = [
