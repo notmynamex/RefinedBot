@@ -74,4 +74,10 @@ async def ping(ctx):
     logging.info(f'Ping is {round(bot.latency * 1000)}ms')
 
 
+@bot.command(aliases=["cabbie"])
+async def cabbage(ctx):
+    await ctx.send("<@!539885184301137920>")
+    logging.info('cabbo ping hehe')
+
+
 bot.run(os.getenv("TOKEN"))
