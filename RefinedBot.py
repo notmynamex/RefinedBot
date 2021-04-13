@@ -5,6 +5,7 @@ from discord.ext import commands
 from discord.ext import tasks
 from random import randint
 from dotenv import load_dotenv
+from utils import jskp
 
 
 load_dotenv(os.getcwd()+"/config.env")
