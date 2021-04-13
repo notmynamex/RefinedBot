@@ -16,8 +16,8 @@ class mod_stuff(commands.Cog):
 
     @bot.command()
     @commands.has_permissions(ban_members=True)
-    async def ban(self, ctx, member:discord.User=None, *, reason =None):
-        if member == None or member == ctx.message.author:
+    async def ban(self, ctx, member:discord.User, *, reason =None):
+        if member == ctx.message.author:
             await ctx.channel.send("why the fuck do you want to ban yourself??")
             logging.info("wow the idiot tried to ban himself lmao")
             return
@@ -28,7 +28,7 @@ class mod_stuff(commands.Cog):
         await member.send(message)
         await ctx.guild.ban(member, reason=reason)
         await ctx.channel.send(f"{member} has been purged from the land of the refined")
-        logging.info("someone has been banned lmao")
+        logging.info(f"{member.name} has been banned lmao")
 
 def setup(bot):
     bot.add_cog(mod_stuff(bot))
