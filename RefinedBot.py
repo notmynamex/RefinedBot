@@ -81,7 +81,7 @@ async def cabbage(ctx):
     logging.info('cabbo ping hehe')
 
 @bot.command()
-async def avatar(ctx, *, avamember: discord.Member=None):
+async def avatar(ctx, *, avamember: discord.Member):
     userAvatarUrl= avamember.avatar_url
     await ctx.send(userAvatarUrl)
     logging.info('avatar command ran ye')
