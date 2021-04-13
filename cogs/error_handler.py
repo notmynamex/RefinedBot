@@ -20,7 +20,7 @@ class error_handler(commands.Cog):
         
         elif isinstance(error, commands.NSFWChannelRequired):
             logging.info("some idiot tried posting nsfw content in a sfw channel")
-            await ctx.send('go to a nsfw channel you fucking idiot <:RinKEK:802258335062949888>')
+            return await ctx.send('go to a nsfw channel you fucking idiot <:RinKEK:802258335062949888>')
 
         elif isinstance(error, commands.CheckFailure):
             logging.info("some idiot thought they had perms to do mod stuff lmao")
