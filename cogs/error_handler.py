@@ -1,5 +1,6 @@
 import logging
 from discord.ext import commands
+from discord.ext.commands.errors import PartialEmojiConversionFailure
 
 
 class error_handler(commands.Cog):
@@ -11,7 +12,11 @@ class error_handler(commands.Cog):
     async def on_command_error(self, ctx, error):
         logging.info("on_command_error triggered")
         
-        if isinstance(error, commands.BadArgument):
+        if isinstance (error, commands.MissingRequiredArgument):
+            logging.info(f"Some absolute imbecile didn't give a required argument ({error.param.name})")
+            return await ctx.send("You absolute imbecile, you didn't provide a required argument")
+        
+        elif isinstance(error, commands.BadArgument):
             logging.info(f"Fucking dumbass doesn't know how to pass in arguments ({error})")
             return await ctx.send("You gave a bad argument you fucking dumbass")
         
