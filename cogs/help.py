@@ -53,6 +53,11 @@ class helpClient(commands.Cog):
             value="Posts a search result of the tag/character/whatever the fuck you searched for. More info for how to search at https://nhentai.net/info/. Excluding tags does not yet work.",
             inline=False #thank you spam for , very cool
         )
+        embed.add_field(
+            name="--avatar @[user]",
+            value="Returns the mentioned users avatar",
+            inline=False
+        )
         await ctx.send(embed=embed)
         logging.info('help embed sent')
 

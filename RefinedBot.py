@@ -80,5 +80,10 @@ async def cabbage(ctx):
     await ctx.send("<@!539885184301137920>")
     logging.info('cabbo ping hehe')
 
+@bot.command()
+async def avatar(ctx, *, avamember: discord.Member=None):
+    userAvatarUrl= avamember.avatar_url
+    await ctx.send(userAvatarUrl)
+    logging.info('avatar command ran ye')
 
 bot.run(os.getenv("TOKEN"))
