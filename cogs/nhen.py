@@ -12,9 +12,21 @@ nhentai = NHentai()
 
 async def sauce_embed(sauce):
     print(sauce)
-    desc = "Tags: "
+    Tags = "Tags: "
     for x in getattr(sauce, "tags"):
-        desc = desc + x + ", "
+        Tags = Tags + x + ", "
+    Artist = "Artist: "
+    for y in getattr(sauce, "artists"):
+        Artist = Artist + y + ", "
+    Parodies = "Parodies: "
+    for z in getattr(sauce, "parodies"):
+        Parodies = Parodies + z + ", "
+    sec_title = "Alternative Title: "
+    for a in getattr(sauce, "secondary_title"):
+        sec_title = sec_title + a 
+    characters = "Characters: "
+    for b in getattr(sauce, "characters"):
+        characters = characters + b + ", "
     if "english" in getattr(sauce, "languages"):
         lang = "🇬🇧"
     elif "japanese" in getattr(sauce, "languages"):
@@ -26,8 +38,28 @@ async def sauce_embed(sauce):
     embed = discord.Embed(
         title=f"{lang} "+getattr(sauce,"title"),
         url="https://nhentai.net/g/"+getattr(sauce,"id")+"/",
-        description=desc,
+        description=sec_title,
         colour=0x1f13ee,
+    )
+    embed.add_field(
+        name="Tags",
+        value=Tags,
+        inline=False
+    )
+    embed.add_field(
+        name="Artist",
+        value=Artist,
+        inline=False
+    )
+    embed.add_field(
+        name="Parodies",
+        value=Parodies,
+        inline=False
+    )
+    embed.add_field(
+        name="Characters",
+        value=characters,
+        inline=False
     )
     embed.set_footer(text=str(getattr(sauce,"total_pages"))+" total pages")
     embed.set_image(url=(getattr(sauce,"images"))[0])
