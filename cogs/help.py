@@ -60,7 +60,12 @@ class helpClient(commands.Cog):
         )
         embed.add_field(
             name="--search [name of anime]",
-            value="Search the myanimelist database for the anime of the argument given. WIP.",
+            value="Gives the best result for the query from the MAL database. WIP.",
+            inline=False
+        )
+        embed.add_field(
+            name="--invite",
+            value="Posts a link to invite the bot.",
             inline=False
         )
         await ctx.send(embed=embed)

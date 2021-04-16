@@ -1,19 +1,65 @@
 import discord
 from discord.ext import commands
-from mal import AnimeSearch
 import logging
+from jikanpy import Jikan
 
 bot = commands.Bot(command_prefix="--")
+jikan = Jikan()
 
 class etc(commands.Cog):
     def __init__(self, client):
         self.client = client
 
     @bot.command()
-    async def search(self, ctx, arg=None):
-        search = AnimeSearch(arg)
-        logging.info("MAL search ran")
-        return await ctx.send(search.results[0].url)
+    async def search(self, ctx, query: str):
+        search = jikan.search("anime", query)
+        results = search.get("results")
+        top = results[0]
+        embed = discord.Embed(
+            color=0x1f13ee
+        )
+        embed.set_thumbnail(url=top.get("image_url"))
+        embed.add_field(
+            name="Title", 
+            value=top.get("title"), 
+            inline=False
+        )
+        embed.add_field(
+            name="Link", 
+            value=f'[MAL]({top.get("url")})', 
+            inline=False
+        )
+        embed.add_field(
+            name="Episodes", 
+            value=top.get("episodes"), 
+            inline=False
+        )
+        embed.add_field(
+            name="Score", 
+            value=top.get("score"), 
+            inline=False
+        )
+        embed.add_field(
+            name="Episodes",
+            value=top.get("episodes"),
+            inline=False
+        )
+        embed.add_field(
+            name="Rated",
+            value=top.get("rated"),
+            inline=False
+        )
+        embed.add_field(
+            name="Type",
+            value=top.get("type"),
+            inline=False
+        )
+        embed.add_field(
+            name="Synopsis", 
+            value=top.get("synopsis"), 
+            inline=False
+            )
+        await ctx.send(embed=embed)
 
     @bot.command()
     async def mention(self, ctx):
@@ -37,6 +83,10 @@ class etc(commands.Cog):
         userAvatarUrl= avamember.avatar_url
         await ctx.send(userAvatarUrl)
         logging.info('avatar command ran ye')
+
+    @bot.command()
+    async def invite(self, ctx):
+        await ctx.send("https://discord.com/oauth2/authorize?client_id=814616270087520316&permissions=59462&scope=bot")
 
 def setup(bot):
     bot.add_cog(etc(bot))
