@@ -2,7 +2,6 @@ import discord
 from discord.ext import commands
 from mal import AnimeSearch
 import logging
-import requestss
 
 bot = commands.Bot(command_prefix="--")
 
