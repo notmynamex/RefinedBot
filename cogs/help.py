@@ -58,6 +58,11 @@ class helpClient(commands.Cog):
             value="Returns the mentioned users avatar",
             inline=False
         )
+        embed.add_field(
+            name="--search [name of anime]",
+            value="Search the myanimelist database for the anime of the argument given. WIP.",
+            inline=False
+        )
         await ctx.send(embed=embed)
         logging.info('help embed sent')
 

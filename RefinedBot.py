@@ -40,7 +40,8 @@ initial_cogs = [
     "cogs.neko",
     "cogs.gelb",
     "cogs.mod_stuff",
-    "cogs.help"
+    "cogs.help",
+    "cogs.etc"
 ]
 
 for cog in initial_cogs:
@@ -63,28 +64,5 @@ async def status():
     value = value - 1
     await bot.change_presence(activity=discord.Game(name=status_list[value]))
     logging.info(f"Status set to: {status_list[value]}")
-
-@bot.command()
-async def mention(ctx):
-    await ctx.send(ctx.author.mention)
-    logging.info('oooooh someone got pinged via --mention') #this command is vital trust me
-
-
-@bot.command()
-async def ping(ctx):
-    await ctx.send(f'uwu your ping is {round(bot.latency * 1000)}ms senpai uwu')
-    logging.info(f'Ping is {round(bot.latency * 1000)}ms')
-
-
-@bot.command(aliases=["cabbie"])
-async def cabbage(ctx):
-    await ctx.send("<@!539885184301137920>")
-    logging.info('cabbo ping hehe')
-
-@bot.command()
-async def avatar(ctx, *, avamember: discord.Member):
-    userAvatarUrl= avamember.avatar_url
-    await ctx.send(userAvatarUrl)
-    logging.info('avatar command ran ye')
 
 bot.run(os.getenv("TOKEN"))

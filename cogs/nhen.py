@@ -3,7 +3,6 @@ import requests
 import logging
 from discord.ext import commands
 from NHentai import NHentai
-from hentai import Utils, Sort, Option, Tag, Hentai, Format
 
 bot = commands.Bot(command_prefix='--')
 nhentai = NHentai()
