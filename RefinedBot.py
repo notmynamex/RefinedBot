@@ -89,8 +89,8 @@ async def status(self):
         logging.info(f"Status set to: {value}")
 
 @bot.event
-async def on_ready():
+async def on_ready(self):
     logging.info('Logged in as {0.user}'.format(bot))
-    status.start()
+    self.status.start()
 
 bot.run(os.getenv("TOKEN"))
