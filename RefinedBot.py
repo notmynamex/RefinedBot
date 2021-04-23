@@ -76,22 +76,21 @@ for cog in initial_cogs:
     except Exception as e:
         logging.error(f"Failed to load cog {cog}: {e}")
 
+@tasks.loop(minutes=10)
+async def status(self):
+    await self.bot.wait_until_ready()
+    if getrandbits(1) == 1:
+        value = choice(status_list)
+        await self.bot.change_presence(activity=discord.Game(name=value))
+        logging.info(f"Status set to: {value}")
+    else:
+        value = choice(watchlist)
+        await self.bot.change_presence(activity=discord.Activity(name=value, type=discord.ActivityType.watching))
+        logging.info(f"Status set to: {value}")
 
 @bot.event
 async def on_ready():
     logging.info('Logged in as {0.user}'.format(bot))
     status.start()
-
-    @tasks.loop(minutes=10)
-    async def status(self):
-        await self.bot.wait_until_ready()
-        if getrandbits(1) == 1:
-            value = choice(status_list)
-            await self.bot.change_presence(activity=discord.Game(name=value))
-            logging.info(f"Status set to: {value}")
-        else:
-            value = choice(watchlist)
-            await self.bot.change_presence(activity=discord.Activity(name=value, type=discord.ActivityType.watching))
-            logging.info(f"Status set to: {value}")
 
 bot.run(os.getenv("TOKEN"))
