@@ -28,7 +28,7 @@ watchlist = [
     "hentai",
     "A certain scientific Railgun",
     "A certain magical Index",
-    "a slime do politics"
+    "a slime do politics",
     "Dimension W",
     "hayasaka be perfect as fuck",
     "astolfo do astolfo things",
