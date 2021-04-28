@@ -8,3 +8,4 @@ aiohttp==3.7.4
 python-dotenv==0.17.0
 jishaku==1.20.0.220
 jikanpy==4.3.1
+rule34==1.8.1
