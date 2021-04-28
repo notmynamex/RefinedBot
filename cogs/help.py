@@ -40,7 +40,7 @@ class helpClient(commands.Cog):
         )
         embed.add_field(
             name="--ping", 
-            value="Show latency", 
+            value="Show latency, broken rn cant be asked to fix", 
             inline=False
         )
         embed.add_field(
@@ -66,6 +66,11 @@ class helpClient(commands.Cog):
         embed.add_field(
             name="--invite",
             value="Posts a link to invite the bot.",
+            inline=False
+        )
+        embed.add_field(
+            name="--rule34 [something to search for]/--r34 [something to search for]",
+            value="Works similar to how the gelbooru commands work, just this time you need to put a _ between words. No lolis! You should be able to search for multiple tags, just put a space between them.",
             inline=False
         )
         await ctx.send(embed=embed)
@@ -113,17 +118,17 @@ class helpClient(commands.Cog):
         embed.set_thumbnail(url="https://i.imgur.com/PcRxTmE.png")
         embed.add_field(
             name="--gelb rs+<arg>",
-            value="Posts a safe for work image in any channel, add tags as args to search for specific...tags. You have to put a + or a / in between tags.",
+            value="Posts a safe for work image in any channel, add tags as args to search for specific...tags. No loli! You have to put a + or a / in between tags.",
             inline=False
         )
         embed.add_field(
             name="--gelb rq+<arg>",
-            value="Posts a questionable image in any nsfw channel, add tags as args to search for specific...tags. You have to put a + or a / in between tags.",
+            value="Posts a questionable image in any nsfw channel, add tags as args to search for specific...tags. No loli! You have to put a + or a / in between tags.",
             inline=False
         )
         embed.add_field(
             name="--gelb re+<arg>",
-            value="Posts an explicit image in any nsfw channel, add tags as args to search for specific...tags. You have to put a + or a / in between tags.",
+            value="Posts an explicit image in any nsfw channel, add tags as args to search for specific...tags. No loli! You have to put a + or a / in between tags.",
             inline=False
         )
         await ctx.send(embed=embed)

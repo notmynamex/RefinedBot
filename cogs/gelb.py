@@ -45,6 +45,9 @@ class gelb(commands.Cog):
 
     @bot.command(aliases=["gelb"])
     async def gelbooru(self, ctx, *tags):
+        if "loli" in tags:
+            logging.info("some lolicon just went to jail")
+            return await ctx.send("no lolis you fucking idiot")
         if "rq" in tags or "re" in tags: 
             if ctx.channel.is_nsfw() is True:  
                 img = get_gelImage(tags)

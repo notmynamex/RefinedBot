@@ -27,7 +27,8 @@ initial_cogs = [
     "cogs.mod_stuff",
     "cogs.help",
     "cogs.etc",
-    "cogs.status"
+    "cogs.status",
+    "cogs.r34"
 ]
 
 for cog in initial_cogs:
@@ -40,5 +41,7 @@ for cog in initial_cogs:
 @bot.event
 async def on_ready():
     logging.info('Logged in as {0.user}'.format(bot))
+    user = bot.get_user(417605262426374166)
+    await user.send("yea i started haha lol you already fucking knew")
 
 bot.run(os.getenv("TOKEN"))
