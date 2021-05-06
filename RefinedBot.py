@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 from utils import jskp
 
 
+
 load_dotenv(os.getcwd()+"/config.env")
 
 intents = discord.Intents.default()
