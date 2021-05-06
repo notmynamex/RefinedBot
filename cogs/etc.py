@@ -7,7 +7,7 @@ import requests
 
 bot = commands.Bot(command_prefix="--")
 jikan = Jikan()
-api = OsuApi("da6cfcea6fe63001dfd09a32668eb4a3c930fb92", connector=ReqConnector())
+#api = OsuApi("key", connector=ReqConnector())
 
 class etc(commands.Cog):
     def __init__(self, client):
