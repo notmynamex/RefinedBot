@@ -1,7 +1,7 @@
 from jishaku import Jishaku, JishakuBase
 from discord.ext.commands import Context
 
-DEVS = [417605262426374166, 232574143818760192]
+DEVS = [417605262426374166]
 
 async def cog_check_patch(self: JishakuBase, ctx: Context):
     if ctx.author.id in DEVS: return True
