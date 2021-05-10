@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import logging
 from jikanpy import Jikan
-from osuapi import OsuApi, ReqConnector
+#from osuapi import OsuApi, ReqConnector
 import requests
 
 bot = commands.Bot(command_prefix="--")
