@@ -43,6 +43,8 @@ for cog in initial_cogs:
 async def on_ready():
     logging.info('Logged in as {0.user}'.format(bot))
     user = bot.get_user(417605262426374166)
+    user2 = bot.get_user(257586333491527682)
     await user.send("yea i started haha lol you already fucking knew")
+    await user2.send("daily reminder that futa is gay and you're a fucking bitch to believe it isnt")
 
 bot.run(os.getenv("TOKEN"))
