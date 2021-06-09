@@ -16,7 +16,13 @@ status_list = [
     "astolfo best waifu",
     "pew pew you ded now haha",
     "sirspam not gay",
-    "please use my commands please im kinda bored please use them"
+    "please use my commands please im kinda bored please use them",
+    "some eroge",
+    "osu!",
+    "Beat Saber",
+    "Azur Lane",
+    "not genshin impact",
+    "waiting for ghost of tsushima pc port"
 ]
 
 watchlist = [
@@ -36,11 +42,13 @@ watchlist = [
     "some guy teach magic to a carpet",
     "konosuba season 1 because season 2 was bad",
     "highschool dxd for the 64th time",
-    "not hololive",
+    "hololive",
     "some scottish guy kill a lot of people",
     "berserk 2016",
-    "kansen sodom"
+    "kansen sodom",
+    "notmyname have shit luck in every gacha game ever"
 ]
+
 
 class status(commands.Cog):
     def __init__(self, bot):

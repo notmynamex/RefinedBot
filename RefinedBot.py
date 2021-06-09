@@ -44,7 +44,9 @@ async def on_ready():
     logging.info('Logged in as {0.user}'.format(bot))
     user = bot.get_user(417605262426374166)
     user2 = bot.get_user(257586333491527682)
+    user3 = bot.get_user(476496625775411220)
     await user.send("yea i started haha lol you already fucking knew")
     await user2.send("daily reminder that futa is gay and you're a fucking bitch to believe it isnt")
+    await user3.send("daily reminder that idk what to put here please help")
 
 bot.run(os.getenv("TOKEN"))

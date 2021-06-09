@@ -2,12 +2,12 @@ import discord
 from discord.ext import commands
 import logging
 from jikanpy import Jikan
-#from osuapi import OsuApi, ReqConnector
 import requests
+import pyosu
 
 bot = commands.Bot(command_prefix="--")
 jikan = Jikan()
-#api = OsuApi("key", connector=ReqConnector())
+osu = pyosu.main("0224be9254db0e86ffbe956f2a9ad3e06bd6179f")
 
 class etc(commands.Cog):
     def __init__(self, client):
@@ -91,11 +91,41 @@ class etc(commands.Cog):
     async def invite(self, ctx):
         await ctx.send("https://discord.com/oauth2/authorize?client_id=814616270087520316&permissions=59462&scope=bot")
 
-#    @bot.command()
-#    async def osu(self, ctx, arg=None):
-#        results = api.get_user_best(arg)
-#        print(results)
-#               ^ this is hell
+    @commands.group()
+    async def osu(self, ctx, args = None):
+        user = await osu.get_user(user = args)
+        if not user:
+            await ctx.send("nothing found you monke")
+            return
+        playcount = str(user.playcount)
+        pp_rank = str(user.pp_rank)
+        accuracy = str(user.accuracy)
+        image = 'http://s.ppy.sh/a/' + str(user.user_id)
+        embed=discord.Embed(
+            title="{}".format(args),
+            description="osu stats for given user",
+            color=0x1f13ee
+        )
+        embed.set_thumbnail(
+            url=image
+        )
+        embed.add_field(
+            name="Playcount:",
+            value=playcount,
+            inline=True 
+        )
+        embed.add_field(
+            name="Rank:",
+            value=pp_rank,
+            inline=True 
+        )
+        embed.add_field(
+            name="Accuracy:",
+            value=accuracy,
+            inline=True
+        )
+        await ctx.send(embed = embed)
+
 
 def setup(bot):
     bot.add_cog(etc(bot))
