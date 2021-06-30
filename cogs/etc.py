@@ -8,7 +8,7 @@ import requests
 bot = commands.Bot(command_prefix="--")
 jikan = Jikan()
 #async def main():
-#    api = OsuApi("0224be9254db0e86ffbe956f2a9ad3e06bd6179f")
+#    api = OsuApi("")
 
 class etc(commands.Cog):
     def __init__(self, client):
