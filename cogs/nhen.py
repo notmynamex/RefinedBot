@@ -98,7 +98,7 @@ class nhen(commands.Cog):
             if not Doujin:
                 logging.info("nothing found lmao what a dumbass")
                 return await ctx.send("nothing found, please dont try again")
-            await ctx.send(embed=await sauce_embed(nhentai._get_doujin(id=getattr(Doujin[int(val)], "id"))))
+            await ctx.send(embed=await sauce_embed(nhentai.get_doujin(id=getattr(Doujin[int(val)], "id"))))
 
 
 def setup(bot):
