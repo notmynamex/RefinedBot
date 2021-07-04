@@ -78,7 +78,7 @@ class nhen(commands.Cog):
             logging.info("random doujin sent")
             return await ctx.send(embed=await sauce_embed(sauce))
         if argument.isdigit():
-            sauce = nhentai._get_doujin(id=argument)
+            sauce = nhentai.get_doujin(id=argument)
             if sauce is None:
                 return await ctx.send("wrong id you idiot <:RinKEK:802258335062949888>")
             logging.info(sauce)

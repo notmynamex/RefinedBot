@@ -11,25 +11,19 @@ def get_gelImage(tags):
     tags = list(tags)
     formatted_tags = ""
     rating = ""
-
     ratings = {
         "re": "rating%3aexplicit",
         "rq": "rating%3aquestionable",
         "rs": "rating%3asafe"
     }
-
     if tags:  
         if tags[0] in ratings:
             rating = ratings[tags[0]]
             tags.remove(tags[0])
-
     if rating == "": 
         rating = ratings["rs"]
-
     formatted_tags = "_".join(tags).replace("/", "+")
-
     logging.info(rating, formatted_tags)
-
     api_url = f"https://gelbooru.com/index.php?page=dapi&s=post&q=index&json=1&limit=50&tags={rating}+{formatted_tags}"
     response = requests.get(api_url)
     try:
