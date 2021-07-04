@@ -2,7 +2,7 @@ import discord
 import requests
 import logging
 from discord.ext import commands
-from NHentai import NHentai
+from NHentai.nhentai import NHentai
 
 bot = commands.Bot(command_prefix='--')
 nhentai = NHentai()
