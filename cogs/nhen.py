@@ -87,7 +87,8 @@ class nhen(commands.Cog):
 
     @nhentai.command()
     @commands.is_nsfw()
-    async def search(self, ctx, argument=None, val=0):
+    async def search(self, ctx, argument=None, val=1):
+        val = val - 1
         logging.info("Ran nhentai search in nsfw channel")
         if argument is None:
             logging.info("nothing provided lmao")
