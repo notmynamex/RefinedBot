@@ -1,1 +1,1 @@
-worker: python RefinedBot.py
+worker: python3 RefinedBot.py
