@@ -73,6 +73,11 @@ class helpClient(commands.Cog):
             value="Works similar to how the gelbooru commands work, just this time you need to put a _ between words. No lolis! You should be able to search for multiple tags, just put a space between them.",
             inline=False
         )
+        embed.add_field(
+            name="--reminder [title of reminder, time when you wanna be reminded]",
+                value="Creates a reminder to remind you of something you want.\n Use -m [number] to set a reminder in [number] minutes,\n -d [number] to set a reminder in [number] days,\n -h [number] to set a reminder in [number] hours,\n -w [number] to set a reminder in [number] weeks.\n IMPORTANT! The title of your reminder needs to be in quotation marks!",
+            inline=False
+        )
         await ctx.send(embed=embed)
         logging.info('help embed sent')
 

@@ -1,14 +1,17 @@
 import discord
-from discord.ext import commands
+from discord.ext import commands, tasks
 import logging
 from jikanpy import Jikan
 import requests
+import datetime
 #from pyosu import OsuApi
+from firebase_admin import firestore
 
 bot = commands.Bot(command_prefix="--")
 jikan = Jikan()
 #async def main():
 #    api = OsuApi("")
+db = firestore.client()
 
 class etc(commands.Cog):
     def __init__(self, client):
@@ -126,6 +129,42 @@ class etc(commands.Cog):
 #            inline=True
 #        )
 #        await ctx.send(embed = embed)
+
+
+    @bot.group(invoke_without_command=True, aliases=['set_reminder', 'r', 'remind'], case_insensitive=True)
+    async def reminder(self, ctx, title, *args):
+        minutes = 0
+        hours = 0
+        days = 0
+        weeks = 0
+        [arg.lower() for arg in args]
+        if ('-m' in args):
+            index = args.index('-m')
+            minutes = int(args[index+1])
+        if ('-h' in args):
+            index = args.index('-h')
+            hours = int(args[index+1])
+        if ('-d' in args):
+            index = args.index('-d')
+            days = int(args[index+1])
+        if ('-w' in args):
+            index = args.index('-w')
+            weeks = int(args[index+1])
+        data = db.collection('Reminders').document('Reminders').get().get('Reminders')
+        now = datetime.datetime.now()
+        time_change = datetime.timedelta(minutes=minutes, hours=hours, days=days, weeks=weeks)
+        reminder = now + time_change
+        new_date = reminder.strftime('%d-%m-%Y')
+        new_time = reminder.strftime('%H:%M')
+        reminder = reminder.strftime('%d-%m-%Y-%H-%M')
+        data.append({
+            "time": reminder,
+            "title": title,
+            "mention": ctx.author.id,
+            "channel_id": ctx.channel.id
+        })
+        db.collection('Reminders').document('Reminders').set({"Reminders": data})
+        await ctx.send(f'I will remind you for `{title}` on `{new_date}` at `{new_time}`')
 
 
 def setup(bot):
