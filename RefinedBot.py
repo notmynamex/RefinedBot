@@ -47,7 +47,7 @@ initial_cogs = [
     "cogs.status",
     "cogs.r34",
     "cogs.reminder",
-    "cogs.reminder2"
+    #"cogs.reminder2"
 ]
 
 for cog in initial_cogs:
