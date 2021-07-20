@@ -151,7 +151,7 @@ class etc(commands.Cog):
             index = args.index('-w')
             weeks = int(args[index+1])
         data = db.collection('Reminders').document('Reminders').get().get('Reminders')
-        now = datetime.datetime.now()
+        now = datetime.datetime.now(tz=datetime.timezone.utc)
         time_change = datetime.timedelta(minutes=minutes, hours=hours, days=days, weeks=weeks)
         reminder = now + time_change
         new_date = reminder.strftime('%d-%m-%Y')
@@ -164,7 +164,7 @@ class etc(commands.Cog):
             "channel_id": ctx.channel.id
         })
         db.collection('Reminders').document('Reminders').set({"Reminders": data})
-        await ctx.send(f'I will remind you for `{title}` on `{new_date}` at `{new_time}`')
+        await ctx.send(f'I will remind you for `{title}` on `{new_date}` at `{new_time} UTC`')
 
 
 def setup(bot):
