@@ -18,7 +18,8 @@ class reminder(commands.Cog):
         for reminder in data:
             if (str(reminder['time']) == str(now)):
                 logging.info(f"Reminding {reminder['mention']} about {reminder['title']}")
-                await self.bot.get_channel({reminder['channel_id'])}).send(f"<@{reminder['mention']}> Reminder: `{reminder['title']}`")
+                print(reminder)
+                await self.bot.get_channel(reminder['channel_id']).send(f"<@{reminder['mention']}> Reminder: `{reminder['title']}`")
     @commands.Cog.listener()
     async def on_ready(self):
         self.reminders.start()

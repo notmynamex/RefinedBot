@@ -46,7 +46,7 @@ initial_cogs = [
     "cogs.etc",
     "cogs.status",
     "cogs.r34",
-    "cogs.reminder",
+    #"cogs.reminder",
     #"cogs.reminder2"
 ]
 
