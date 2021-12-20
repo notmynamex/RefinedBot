@@ -11,4 +11,4 @@ jikanpy==4.3.2
 rule34==1.8.1
 firebase_admin==5.2.0
 datetime==4.3
-git+https://github.com/Renondedju/Osu.py
+git+git://github.com/Renondedju/Osu.py
