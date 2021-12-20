@@ -11,7 +11,7 @@ class mod_stuff(commands.Cog):
     @bot.command(pass_context=True)
     @commands.has_permissions(manage_messages=True)
     async def purge(self, ctx, limit: int):
-            await ctx.channel.purge(limit=limit)
+            await ctx.channel.purge(limit=limit+1)
             logging.info("the purge has begun")
 
     @bot.command()

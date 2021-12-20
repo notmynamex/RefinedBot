@@ -1,16 +1,19 @@
 import discord
+import os
+from dotenv import load_dotenv
 from discord.ext import commands, tasks
 import logging
 from jikanpy import Jikan
 import requests
 import datetime
-#from pyosu import OsuApi
+from pyosu import OsuApi
+import asyncio
 from firebase_admin import firestore
 
 bot = commands.Bot(command_prefix="--")
 jikan = Jikan()
-#async def main():
-#    api = OsuApi("")
+load_dotenv(os.getcwd()+"/config.env")
+api = OsuApi(os.getenv("OSU"))
 db = firestore.client()
 
 class etc(commands.Cog):
@@ -95,40 +98,46 @@ class etc(commands.Cog):
     async def invite(self, ctx):
         await ctx.send("https://discord.com/oauth2/authorize?client_id=814616270087520316&permissions=59462&scope=bot")
 
-#    @bot.command()
-#    async def osu(self, ctx, *, args = None):
-#        user = await api.get_user(user = args)
-#        if not user:
-#            await ctx.send("nothing found you monke")
-#            return
-#        playcount = str(user.playcount)
-#        pp_rank = str(user.pp_rank)
-#        accuracy = str(user.accuracy)
-#        image = 'http://s.ppy.sh/a/' + str(user.user_id)
-#        embed=discord.Embed(
-#            title="{}".format(args),
-#            description="osu stats for given user",
-#            color=0x1f13ee
-#        )
-#        embed.set_thumbnail(
-#            url=image
-#        )
-#        embed.add_field(
-#            name="Playcount:",
-#            value=playcount,
-#            inline=True 
-#        )
-#        embed.add_field(
-#            name="Rank:",
-#            value=pp_rank,
-#            inline=True 
-#        )
-#        embed.add_field(
-#            name="Accuracy:",
-#            value=accuracy,
-#            inline=True
-#        )
-#        await ctx.send(embed = embed)
+    @bot.command()
+    async def osu(self, ctx, *, args = None):
+        user = await api.get_user(user = args)
+        if not user:
+            await ctx.send("nothing found you monke")
+            return
+        playcount = str(user.playcount)
+        pp_rank = str(user.pp_rank)
+        accuracy = str(user.accuracy)
+        raw_pp = str(user.pp_raw)
+        image = 'http://s.ppy.sh/a/' + str(user.user_id)
+        embed=discord.Embed(
+            title="{}".format(args),
+            description="osu stats for given user",
+            color=0x1f13ee
+        )
+        embed.set_thumbnail(
+            url=image
+        )
+        embed.add_field(
+            name="Playcount:",
+            value=playcount,
+            inline=True 
+        )
+        embed.add_field(
+            name="Rank:",
+            value=pp_rank,
+            inline=True 
+        )
+        embed.add_field(
+            name="PP:",
+            value=raw_pp,
+            inline=True
+        )
+        embed.add_field(
+            name="Accuracy:",
+            value=accuracy,
+            inline=True
+        )
+        await ctx.send(embed = embed)
 
 
     @bot.group(invoke_without_command=True, aliases=['set_reminder', 'r', 'remind'], case_insensitive=True)
