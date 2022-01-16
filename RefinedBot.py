@@ -40,7 +40,7 @@ initial_cogs = [
     "cogs.error_handler",
     "cogs.nhen",
     "cogs.neko",
-    "cogs.gelb",
+    #"cogs.gelb",
     "cogs.mod_stuff",
     "cogs.help",
     "cogs.etc",
