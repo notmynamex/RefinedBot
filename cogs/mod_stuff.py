@@ -23,6 +23,7 @@ class mod_stuff(commands.Cog):
             return
         if member.bot:
             logging.info(f"{member} has been banned lmao")
+            await ctx.guild.ban(member, reason=reason)
             return await ctx.channel.send(f"{member} has been banned from this wonderful server")
         if reason == None:
             reason = "begone thot"
