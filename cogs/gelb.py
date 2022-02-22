@@ -3,10 +3,8 @@ import random
 import logging
 import json
 from discord.ext import commands
-from pygelbooru import Gelbooru
 
 bot = commands.Bot(command_prefix='--')
-gelbooru = Gelbooru("6e3fb1fa6e9ba83cdd220b3ec989b5d173b3ff3fab6eda262124beae5e14a085", "637638")
 
 
 #def get_gelImage(tags):
