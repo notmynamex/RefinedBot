@@ -1,5 +1,5 @@
 # RefinedBot
-[![CodeFactor](https://www.codefactor.io/repository/github/notmynamex/refinedbot/badge)](https://www.codefactor.io/repository/github/notmynamex/refinedbot) <a href="https://codeclimate.com/github/notmynamex/RefinedBot/maintainability"><img src="https://api.codeclimate.com/v1/badges/ae03a29097e6c09a5adc/maintainability" /></a>
+As of 29/09/2022 the bot is offline for an indefinite amount of time until I either fix it myself or someone else makes a PR to fix it.
 
 The very best bot for discord, only that it totally isn't.
 Yea seriously this bot fucking sucks
